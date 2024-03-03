@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script src="scene.js"></script>
+    <script src="shape.js"></script>
+    <script src="circle.js"></script>
+    <script src="point.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600" style="border: 1px solid grey"></canvas>
+</body>
+
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    const scene = new Scene(context);
+
+    const line = new Shape([new Point('A', 50, 50), new Point('B', 200, 200)]);
+    line.color ='blue';
+
+    const triangle = new Shape([
+        new Point('C', 80, 100),
+        new Point('E', 150, 120), 
+        new Point('F', 200, 50)
+    ]);
+    triangle.color = 'red'
+
+    const circle = new Circle(new Point('O', 300, 300), 40);
+    circle.color = 'green'
+
+    scene.addShape(line);
+    scene.addShape(triangle);
+    scene.addShape(circle);
+    scene.draw()
+
+</script>
+
+</html>
