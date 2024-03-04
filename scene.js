@@ -1,7 +1,5 @@
 class Scene {
-    _ctx;
-    _shapes = [];
-
+_shapes = [];
 
     constructor(aContext) {
         this._ctx = aContext

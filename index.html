@@ -5,6 +5,7 @@
     <script src="shape.js"></script>
     <script src="circle.js"></script>
     <script src="point.js"></script>
+    <script src="rubber.js"></script>
 </head>
 
 <body>
@@ -28,13 +29,14 @@
     triangle.color = 'red'
 
     const circle = new Circle(new Point('O', 300, 300), 40);
-    circle.color = 'green'
+    const rubber = new Rubber([50, 50], 100, 10)
 
     scene.addShape(line);
     scene.addShape(triangle);
     scene.addShape(circle);
+    scene.addShape(rubber)
     scene.draw()
 
 </script>
 
-</html>
+</html>         

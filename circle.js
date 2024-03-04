@@ -1,7 +1,5 @@
 class Circle {
-    _center;
-    _radius;
-    _color = 'black';
+     _color = 'black';
 
     constructor(center, radius) {
         this._center = center;
@@ -27,15 +25,9 @@ class Circle {
         this.center.draw(ctx)
         ctx.closePath();
         ctx.beginPath();
+        
         ctx.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
     }
-
-    drawPoint(ctx, aPoint) {
-        ctx.arc(aPoint.x, aPoint.y, 1, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fillText(aPoint.label, aPoint.x - 3, aPoint.y - 5)
-    }
-
 }

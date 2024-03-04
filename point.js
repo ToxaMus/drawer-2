@@ -1,9 +1,4 @@
 class Point {
-    _label = '';
-    _x = 0;
-    _y = 0;
-
-
     constructor(label, x, y) {
         this._label = label;
         this._x = x;
