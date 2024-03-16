@@ -19,6 +19,7 @@ class Shape {
     }
 
     draw(ctx) {
+        console.log('DRAW SHAPE')
         ctx.strokeStyle = this._color;
      
         ctx.beginPath();

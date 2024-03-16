@@ -6,6 +6,7 @@
     <script src="circle.js"></script>
     <script src="point.js"></script>
     <script src="rubber.js"></script>
+    <script src="tetrahedron.js"></script>
 </head>
 
 <body>
@@ -18,23 +19,13 @@
     const context = canvas.getContext("2d");
     const scene = new Scene(context);
 
-    const line = new Shape([new Point('A', 50, 50), new Point('B', 200, 200)]);
-    line.color ='blue';
-
-    const triangle = new Shape([
-        new Point('C', 80, 100),
-        new Point('E', 150, 120), 
-        new Point('F', 200, 50)
+    const tetrahedron = new Tetrahedron([
+        new Point('A', 200, 400),
+        new Point('C', 300, 150),
+        new Point('B', 400, 400), 
+        new Point('D', 300, 550),
     ]);
-    triangle.color = 'red'
-
-    const circle = new Circle(new Point('O', 300, 300), 40);
-    const rubber = new Rubber([50, 50], 100, 10)
-
-    scene.addShape(line);
-    scene.addShape(triangle);
-    scene.addShape(circle);
-    scene.addShape(rubber)
+    scene.addShape(tetrahedron)
     scene.draw()
 
 </script>

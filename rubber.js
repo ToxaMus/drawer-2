@@ -22,3 +22,4 @@ class Rubber {
         ctx.clearRect(this._vertex[0], this._vertex[1], this._width, this._height);
    }
 }
+    
