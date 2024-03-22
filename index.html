@@ -1,33 +1,27 @@
 <html>
 
 <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="main.css">
     <script src="scene.js"></script>
-    <script src="shape.js"></script>
+    <script src="broken line.js"></script>
     <script src="circle.js"></script>
     <script src="point.js"></script>
     <script src="rubber.js"></script>
     <script src="tetrahedron.js"></script>
+    <script src="triangle.js"></script>
+    <script src="rulerY.js"></script>
 </head>
 
 <body>
-    <canvas id="canvas" width="600" height="600" style="border: 1px solid grey"></canvas>
+    <div id="container">
+        <canvas id="rulerY" width="33" height="600"></canvas>
+        <canvas id="canvas" width="600" height="600"></canvas>
+    </div>
 </body>
 
 
 <script>
-    const canvas = document.getElementById("canvas");
-    const context = canvas.getContext("2d");
-    const scene = new Scene(context);
-
-    const tetrahedron = new Tetrahedron([
-        new Point('A', 200, 400),
-        new Point('C', 300, 150),
-        new Point('B', 400, 400), 
-        new Point('D', 300, 550),
-    ]);
-    scene.addShape(tetrahedron)
-    scene.draw()
-
+    const rulerY = new RulerY()
+    rulerY.draw()
 </script>
-
-</html>         

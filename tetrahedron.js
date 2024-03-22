@@ -1,4 +1,4 @@
-class Tetrahedron extends Shape {
+class Tetrahedron extends BrokenLine {
     constructor(point) {
         super(point)
         this._vertex = point;
@@ -7,15 +7,28 @@ class Tetrahedron extends Shape {
     get vertex() {
         return this._vertex
     }
-    
+
+    dettedLine(actx) {
+        let firstPoint = this.vertex[0]
+        let secondPoint = this.vertex[2]
+
+        for (let i = 0; i + firstPoint.x < secondPoint.x; i += 10) {
+            actx.beginPath();
+            actx.moveTo(i + firstPoint.x, firstPoint.y);
+            actx.lineTo(i + 5 + firstPoint.x, firstPoint.y);
+
+            actx.closePath();
+            actx.stroke();
+        }
+    }
+
     draw(ctx) {
         super.draw(ctx);
-    
+
         const fourthVertex = this._vertex[3];
         let point;
 
         for (let i = 0; i < this._vertex.length - 1; i++) {
-            console.log(this._vertex[i])
             ctx.beginPath();
 
             point = this._vertex[i];
@@ -26,17 +39,6 @@ class Tetrahedron extends Shape {
             ctx.closePath()
             ctx.stroke()
         }
-
-        const firstPoint = this.vertex[0];
-        const secondPoint = this.vertex[2];
-
-        for (let i = 0; i + firstPoint.x < secondPoint.x; i +=10) {
-            ctx.beginPath();
-            ctx.moveTo(i+firstPoint.x, firstPoint.y);
-            ctx.lineTo(i+5+firstPoint.x, firstPoint.y);
-            ctx.closePath();
-            ctx.stroke();
-        }        
+        this.dettedLine(ctx)
     }
-
-} 
+}

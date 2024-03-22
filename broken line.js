@@ -1,4 +1,4 @@
-class Shape {
+class BrokenLine {
     _color = 'black';
 
     constructor(points) {
@@ -6,7 +6,7 @@ class Shape {
     }
 
 
-    set color(value){
+    set color(value) {
         this._color = value
     }
 
@@ -19,20 +19,20 @@ class Shape {
     }
 
     draw(ctx) {
-        console.log('DRAW SHAPE')
         ctx.strokeStyle = this._color;
-     
+
         ctx.beginPath();
         ctx.moveTo(this.firstPoint.x, this.firstPoint.y)
-     
+
         this.firstPoint.draw(ctx)
-     
+
         this.vertices().forEach(each => {
             ctx.lineTo(each.x, each.y)
             each.draw(ctx)
         });
-      
+
         ctx.closePath();
         ctx.stroke();
+
     }
 }
