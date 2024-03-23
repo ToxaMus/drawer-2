@@ -1,12 +1,28 @@
 #canvas {
-    border: 1px solid black;
-    margin-left: 1em;
+    margin: 0;
+    position: absolute;
 }
 
 #container {
     display: flex;
+    flex-direction: row;
+    margin: 10px;
 }
 
-#rulerY{
-   border: 1px solid black;
+.styleCanvas{
+    border: 1px solid black;
+}
+
+#rulerX {
+    margin-left: 53px;
+    margin-top: 1px;
+}
+
+#coordinateTable {
+    position: absolute;
+    z-index: -100;
+}
+
+form {
+    margin-left: 10px;
 }

@@ -11,17 +11,30 @@
     <script src="tetrahedron.js"></script>
     <script src="triangle.js"></script>
     <script src="rulerY.js"></script>
+    <script src="rulerX.js"></script>
+    <script src="coordinateTable.js"></script>
 </head>
 
 <body>
     <div id="container">
-        <canvas id="rulerY" width="33" height="600"></canvas>
-        <canvas id="canvas" width="600" height="600"></canvas>
+        <canvas class="styleCanvas" id="rulerY" width="33" height="600"></canvas>
+        <form>
+            <canvas id="canvas" class="styleCanvas" width="600" height="600"></canvas>
+            <canvas id="coordinateTable" class="styleCanvas" width="600" height="600"></canvas>
+        </form>
     </div>
+
+    <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
 </body>
 
 
 <script>
     const rulerY = new RulerY()
     rulerY.draw()
+    
+    const rulerX = new RulerX()
+    rulerX.draw()
+
+    const coordinateTable = new CoordinateTable()
+    coordinateTable.draw()
 </script>
