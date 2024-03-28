@@ -14,6 +14,8 @@
     <script src="rulerX.js"></script>
     <script src="coordinateTable.js"></script>
     <script src="inputPoint.js"></script>
+    <script src="replace coma.js"></script>
+    <script src="bottun Enter.js"></script>
 </head>
 
 <body>
@@ -26,7 +28,7 @@
         <div id="text">
             <div> Геометрическая фигура:
                 <select id="geometryType">
-                    <option></option>
+                    <option>список</option>
                     <option value="line">ломаная</option>
                     <option value="circle">круг</option>
                     <option value="tetrahedron">тетраэдр</option>
@@ -42,7 +44,6 @@
     <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
 </body>
 
-
 <script>
     const rulerY = new RulerY()
     rulerY.draw()
@@ -55,13 +56,22 @@
 
     const geometryTypeElement = document.getElementById("geometryType");
 
-    let geometryType
+    const polygon = []
+    const enter = new Enter(polygon)
+    const form = document.getElementById('input');
+    
     geometryTypeElement.addEventListener('change', (event) => {
-        geometryType = geometryTypeElement.value;
+        const geometryType = geometryTypeElement.value;
 
         const inputPoint = new InputPoint(geometryType)
         inputPoint.removeInput()
-        inputPoint.choosingFigure()
+        inputPoint.choosingFigure()        
+        
+        form.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                enter.click(form, geometryType)
+                console.table(polygon)
+            }
+        })
     })
-
 </script>

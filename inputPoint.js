@@ -9,7 +9,7 @@ class InputPoint {
         block.innerHTML =
             `
             <p>буква:</p>
-            <input type="text" class="input">
+            <input type="text" id="label" class="input">
             <p>x:</p>
             <input type="text" class="input">
             <p>y:</p>
@@ -25,7 +25,7 @@ class InputPoint {
         block.innerHTML =
             `
             <p>буква:</p>
-            <input type="text" class="input">
+            <input type="text" id="label" class="input">
             <p>x:</p>
             <input type="text" class="input">
             <p>y:</p>
@@ -54,7 +54,7 @@ class InputPoint {
     }
 
     choosingFigure() {
-        if (this._figyre == "line" ) {
+        if (this._figyre == "line") {
             this.addInput()
         }
 
@@ -69,11 +69,11 @@ class InputPoint {
             for (let i = 1; i <= 3; i++) {
                 this.addInput()
             }
+        }
 
-            if (this._figyre == "tetrahedron" || this._figyre == "rhombus") {
-                for (let i = 1; i <= 4; i++) {
-                    this.addInput()
-                }
+        if (this._figyre == "tetrahedron" || this._figyre == "rhombus") {
+            for (let i = 1; i <= 4; i++) {
+                this.addInput()
             }
         }
     }
