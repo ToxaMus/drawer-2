@@ -1,6 +1,6 @@
-class Tetrahedron extends BrokenLine {
-    constructor(point) {
-        super(point)
+class Tetrahedron extends Polyline {
+    constructor(point, type) {
+        super(point, type)
         this._vertex = point;
     }
 

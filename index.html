@@ -2,20 +2,24 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="main.css">
-    <script src="scene.js"></script>
-    <script src="broken line.js"></script>
-    <script src="circle.js"></script>
-    <script src="point.js"></script>
-    <script src="rubber.js"></script>
-    <script src="tetrahedron.js"></script>
-    <script src="triangle.js"></script>
-    <script src="rulerY.js"></script>
-    <script src="rulerX.js"></script>
-    <script src="coordinateTable.js"></script>
-    <script src="inputPoint.js"></script>
-    <script src="replace coma.js"></script>
-    <script src="bottun Enter.js"></script>
+    <link rel="stylesheet" href="main.css"> 
+    <script src="js/draw-figure.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/polyline.js"></script>
+    <script src="js/circle.js"></script>
+    <script src="js/point.js"></script>
+    <script src="js/rubber.js"></script>
+    <script src="js/tetrahedron.js"></script>
+    <script src="js/triangle.js"></script>
+    <script src="js/preparation-canvas.js"></script>
+    <script src="js/ruler-y.js"></script>
+    <script src="js/ruler-x.js"></script>
+    <script src="js/coordinate-table.js"></script>
+    <script src="js/input-point.js"></script>
+    <script src="js/replace-comma.js"></script>
+    <script src="js/bottom-enter.js"></script>
+    <script src="js/scaled-y.js"></script>
+    <script src="js/marker-point.js"></script>
 </head>
 
 <body>
@@ -24,8 +28,14 @@
         <form id="drawer">
             <canvas id="canvas" class="styleCanvas" width="600" height="600"></canvas>
             <canvas id="coordinateTable" class="styleCanvas" width="600" height="600"></canvas>
+            <canvas id="marker" class="styleCanvas" width="600" height="600"></canvas>
         </form>
         <div id="text">
+            <div id="instruction">
+                <p>Точки надо вводить по <b>часовой</b></p>
+                <p>Буква не обязательна</p>
+                <p>Для корректного отображения маркера заполните поля Х и У</p>
+            </div>
             <div> Геометрическая фигура:
                 <select id="geometryType">
                     <option>список</option>
@@ -40,38 +50,45 @@
             <form id="input"></form>
         </div>
     </div>
-
     <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
 </body>
 
 <script>
-    const rulerY = new RulerY()
-    rulerY.draw()
-
-    const rulerX = new RulerX()
-    rulerX.draw()
-
-    const coordinateTable = new CoordinateTable()
-    coordinateTable.draw()
-
+    preparation()
     const geometryTypeElement = document.getElementById("geometryType");
 
-    const polygon = []
+    let polygon = []
     const enter = new Enter(polygon)
     const form = document.getElementById('input');
-    
+    let geometryType
+
     geometryTypeElement.addEventListener('change', (event) => {
-        const geometryType = geometryTypeElement.value;
+        geometryType = geometryTypeElement.value;
+        polygon.length = 0
 
         const inputPoint = new InputPoint(geometryType)
         inputPoint.removeInput()
-        inputPoint.choosingFigure()        
-        
-        form.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                enter.click(form, geometryType)
-                console.table(polygon)
-            }
-        })
+        inputPoint.choosingFigure()
     })
+
+    const context = document.getElementById("canvas").getContext("2d")
+    const scene = new Scene(context)
+    const scaledY = new ScaledY()
+    const marker = new MarkerPoint()
+
+
+    document.addEventListener('keyup', (event) => {
+        marker.marker(form)
+      
+        if (event.code === 'Enter') {
+            marker.enter()
+
+            enter.click(form, geometryType);
+            scaledY.scal(polygon)
+
+            figureDraw(geometryType, polygon, scene)
+             scaledY.scal(polygon)
+
+        }
+    });
 </script>

@@ -1,8 +1,9 @@
-class BrokenLine {
+class Polyline {
     _color = 'black';
 
-    constructor(points) {
+    constructor(points, figure) {
         this._vertices = points;
+        this._type = figure
     }
 
 
@@ -15,24 +16,27 @@ class BrokenLine {
     }
 
     get firstPoint() {
-        return this._vertices[0]
+        return this._vertices[0] 
+    }
+
+    get type() {
+        return this._type
     }
 
     draw(ctx) {
-        ctx.strokeStyle = this._color;
-
-        ctx.beginPath();
         ctx.moveTo(this.firstPoint.x, this.firstPoint.y)
-
-        this.firstPoint.draw(ctx)
-
+        
+        ctx.beginPath();
+        ctx.strokeStyle = this._color;
         this.vertices().forEach(each => {
             ctx.lineTo(each.x, each.y)
             each.draw(ctx)
         });
 
-        ctx.closePath();
-        ctx.stroke();
+        if (this.type == "triangle")  {
+            ctx.closePath()
+        }
 
+        ctx.stroke();
     }
 }

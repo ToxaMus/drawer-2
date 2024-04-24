@@ -11,9 +11,9 @@ class InputPoint {
             <p>буква:</p>
             <input type="text" id="label" class="input">
             <p>x:</p>
-            <input type="text" class="input">
+            <input type="text" class="input" id="inputX">
             <p>y:</p>
-            <input type="text" class="input">
+            <input type="text" class="input" id="inputY">
         `
 
         div.appendChild(block)
@@ -27,9 +27,9 @@ class InputPoint {
             <p>буква:</p>
             <input type="text" id="label" class="input">
             <p>x:</p>
-            <input type="text" class="input">
+            <input type="text" class="input" id="inputX">
             <p>y:</p>
-            <input type="text" class="input">
+            <input type="text" class="input" id="inputY"> 
             <p>радиус:</p>
             <input type="text" class="input"> 
         `
@@ -42,9 +42,9 @@ class InputPoint {
         block.innerHTML =
             `
             <p>x:</p>
-            <input type="text" class="input">
+            <input type="text" class="input" id="inputX">
             <p>y:</p>
-            <input type="text" class="input">
+            <input type="text" class="input" id="inputY">
             <p>длина:</p>
             <input type="text" class="input">
             <p>ширина:</p>

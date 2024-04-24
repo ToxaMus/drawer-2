@@ -52,3 +52,16 @@
 #input > p {
     font-size: 10;
 }
+
+#instruction {
+    margin-bottom: 2em;
+}
+
+#instruction > p {
+    color: red;
+}
+
+#marker {
+    position: absolute;
+    z-index: 100;
+}
