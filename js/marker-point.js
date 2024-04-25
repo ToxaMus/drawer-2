@@ -53,7 +53,7 @@ class MarkerPoint extends CommaDot {
         this._ctx.stroke()
     }
 
-    enter() {
+    enterOrEscape() {
         this._ctx.clearRect(this.x-2, this.y-2, 4, 4)
         this._point.length = 0
     }
