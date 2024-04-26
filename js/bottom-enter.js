@@ -11,15 +11,16 @@ class Enter extends CommaDot {
     }
 
     addPoint(input, figure) {
-        this._point.push(this.сheckNumber(input))
+        this.сheckNumber(input)
+        console.table(this._point)
         input.value = '';
 
         if (this._point.length == 3 && figure != "circle" && figure != "rubber") {
-            this.polygon.push({ label: this._point[0], x: this._point[1], y: this._point[2]})
+            this.polygon.push({ label: this._point[0], x: this._point[1], y: this._point[2] })
             this._point = []
         } else if (this._point.length == 4) {
             if (figure == "circle") {
-                this.polygon.push({ label: this._point[0], x: this._point[1], y: this._point[2], radius: this._point[3]})
+                this.polygon.push({ label: this._point[0], x: this._point[1], y: this._point[2], radius: this._point[3] })
             } else {
                 this.polygon.push({ x: this._point[0], y: this._point[1], width: this._point[2], height: this._point[3] })
             }
@@ -34,11 +35,29 @@ class Enter extends CommaDot {
             if (inputValue && inputElement.getAttribute('id') !== 'label') {
                 inputValue = super.replace(inputValue)
 
-                if (isNaN(parseFloat(inputValue))) {
-                    throw new Error("Неверный ввод")
-                }
+                if (inputElement.getAttribute("id") == 'coordinate') {
+                    const coord = inputValue.split(" ")
 
-                return parseFloat(inputValue)
+                    if (isNaN(parseFloat(coord[0])) || isNaN(coord[1])) {
+                        throw new Error("Неверный ввод")
+                    }
+
+                    coord[0] = parseFloat(coord[0])
+                    coord[1] = parseFloat(coord[1])
+
+                    this._point.push(coord[0])
+                    this._point.push(coord[1])
+                } else {
+                    inputValue = super.replace(inputValue)
+
+                    if (isNaN(parseFloat(inputValue))) {
+                        throw new Error("Неверный ввод")
+                    }
+
+                    this._point.push(parseFloat(inputValue))
+                }
+            } else {
+                this._point.push(inputValue)
             }
 
             return inputValue

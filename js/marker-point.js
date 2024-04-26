@@ -11,16 +11,27 @@ class MarkerPoint extends CommaDot {
     сonvertToNumber(inputElement) {
         let inputValue = inputElement.value
 
-        if (!isNaN(parseFloat(inputValue)) && inputValue != undefined && inputValue && (inputElement.getAttribute('id') == 'inputX' || inputElement.getAttribute('id') == 'inputY')) {
-            inputValue = super.replace(inputValue)
+        if (inputValue && inputElement.getAttribute('id') == "coordinate") {
+            this._point = inputValue.split(" ")
+            this.check(inputElement)
+        }
+    }
 
-                if (inputElement.getAttribute('id') == 'inputX') {
-                    this._point[0] = parseFloat(inputValue)
-                }
+    check(element) {
+        this.error(element)
+        for (let index = 0; index < this._point.length; index++) {
+            this._point[index] = super.replace(this._point[index])
+            this._point[index] = parseFloat(this._point[index])
 
-                if (inputElement.getAttribute('id') == 'inputY') {
-                    this._point[1] = 600-parseFloat(inputValue)
-                }
+        }
+
+    }
+
+    error (el) {
+        if (this._point.length > 2 || isNaN(this._point[0]) || isNaN(this._point[1])) {
+            el.style.border = "4px solid red"
+        } else {
+            el.style.border = "1px solid black"
         }
     }
 
@@ -34,19 +45,19 @@ class MarkerPoint extends CommaDot {
     draw(inputEl) {
         this.сonvertToNumber(inputEl)
 
-        if (this._point[0] != this.x || this._point[1] != this.y) {           
+        if (this._point[0] != this.x || this._point[1] != this.y) {
+            this.rubber()
+
             this._ctx.beginPath()
-            this._ctx.arc(this._point[0], this._point[1], 2, 0, Math.PI * 2)
+            this._ctx.arc(this._point[0], 600-this._point[1], 2, 0, Math.PI * 2)
             this._ctx.fillStyle = "red"
             this._ctx.fill()
-
-            this.rubber()
         }
     }
 
     rubber() {
         this._ctx.beginPath()
-        this._ctx.clearRect(this.x-2, this.y-2, 4, 4)
+        this._ctx.clearRect(this.x - 2, 600-this.y - 2, 4, 4)
         this.x = this._point[0]
         this.y = this._point[1]
 
@@ -54,7 +65,7 @@ class MarkerPoint extends CommaDot {
     }
 
     enterOrEscape() {
-        this._ctx.clearRect(this.x-2, this.y-2, 4, 4)
+        this._ctx.clearRect(this.x - 2, this.y - 2, 4, 4)
         this._point.length = 0
     }
 }

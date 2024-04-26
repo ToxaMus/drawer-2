@@ -1,8 +1,4 @@
 class InputPoint {
-    constructor(type) {
-        this._figyre = type
-    }
-
     addInput() {
         const div = document.querySelector("#input")
         const block = document.createElement("div")
@@ -10,10 +6,8 @@ class InputPoint {
             `
             <p>буква:</p>
             <input type="text" id="label" class="input">
-            <p>x:</p>
-            <input type="text" class="input" id="inputX">
-            <p>y:</p>
-            <input type="text" class="input" id="inputY">
+            <p>координата:</p>
+            <input type="text" id="coordinate">
         `
 
         div.appendChild(block)
@@ -26,10 +20,8 @@ class InputPoint {
             `
             <p>буква:</p>
             <input type="text" id="label" class="input">
-            <p>x:</p>
-            <input type="text" class="input" id="inputX">
-            <p>y:</p>
-            <input type="text" class="input" id="inputY"> 
+            <p>координата:</p>
+            <input type="text" id="coordinate">
             <p>радиус:</p>
             <input type="text" class="input"> 
         `
@@ -41,10 +33,8 @@ class InputPoint {
         const block = document.createElement("div")
         block.innerHTML =
             `
-            <p>x:</p>
-            <input type="text" class="input" id="inputX">
-            <p>y:</p>
-            <input type="text" class="input" id="inputY">
+            <p>координата:</p>
+            <input type="text" id="coordinate">
             <p>длина:</p>
             <input type="text" class="input">
             <p>ширина:</p>
@@ -53,39 +43,45 @@ class InputPoint {
         div.appendChild(block)
     }
 
-    choosingFigure() {
-        if (this._figyre == "line") {
+    choosingFigure(figure) {
+        if (figure == "line") {
             this.addInput()
         }
 
-        if (this._figyre == "rubber") {
+        if (figure == "rubber") {
             this.addInputRubber()
         }
-        if (this._figyre == "circle") {
+        if (figure == "circle") {
             this.addInputCircle()
         }
 
-        if (this._figyre == "triangle") {
+        if (figure == "triangle") {
             for (let i = 1; i <= 3; i++) {
                 this.addInput()
             }
         }
 
-        if (this._figyre == "tetrahedron" || this._figyre == "rhombus") {
+        if (figure == "tetrahedron" || figure == "rhombus") {
             for (let i = 1; i <= 4; i++) {
                 this.addInput()
             }
         }
     }
 
-    removeInput() {
-        const form = document.getElementById('input');
-        const formChildren = form.children;
+    removeInput(el) {
+        const formChildren = el.children;
 
         for (let i = formChildren.length - 1; i >= 0; i--) {
             if (formChildren[i].tagName === 'DIV') {
-                form.removeChild(formChildren[i]);
+                el.removeChild(formChildren[i]);
             }
         }
+    }
+
+    returnBorder(element) {
+        const inputEl = element.querySelectorAll('input');
+        inputEl.forEach((input) => {
+            input.style.border = "1px solid black"
+        });
     }
 }
