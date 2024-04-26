@@ -1,10 +1,11 @@
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <title>Чертёжник</title>
     <link rel="icon" href="icon.png" type="images/icon-x">
 
-    <link rel="stylesheet" href="main.css"> 
+    <link rel="stylesheet" href="main.css">
     <script src="js/draw-figure.js"></script>
     <script src="js/scene.js"></script>
     <script src="js/polyline.js"></script>
@@ -23,7 +24,8 @@
     <script src="js/scaled-y.js"></script>
     <script src="js/marker-point.js"></script>
     <script src="js/bottom-escape.js"></script>
-   
+    <script src="js/copy-img.js"></script>
+
 </head>
 
 <body>
@@ -58,10 +60,11 @@
                 </select>
             </div>
             <form id="input"></form>
-            <button id="copy">Скопировать рисунок</button>
+            <button id="copy" onclick="copyCanvasContentsToClipboard()">Скопировать рисунок</button>
         </div>
     </div>
     <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
+     
 </body>
 
 <script>
@@ -91,23 +94,21 @@
 
     document.addEventListener('keyup', (event) => {
         marker.marker(form)
-
+        
         if (event.code === "Escape") {
             escape1.click(form, marker, polygon)
         }
-      
-        if (event.code === 'Enter') {
+
+        if (event.code === 'Enter' && form.length != 0) {
             marker.enterOrEscape()
 
             enter.click(form, geometryType);
             scaledY.scal(polygon)
 
             figureDraw(geometryType, polygon, scene)
-             scaledY.scal(polygon)
+            scaledY.scal(polygon)
 
         }
     });
 </script>
-
-<script src="js/copy-img.js"></script>
 </html>
