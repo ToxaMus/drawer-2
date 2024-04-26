@@ -1,14 +1,30 @@
 
-const canvas = document.getElementById("canvas");
+
 
 async function copyCanvasContentsToClipboard() {
-  // Copy canvas to blob
-  const blob = await canvas.toBlob();
-  // Create ClipboardItem with blob and it's type, and add to an array
+    const canvas = document.getElementById("canvas");
+    const blob = await new Promise((resolve) => {
+        canvas.toBlob(resolve, 'image/png');
+      });
+  console.log({blob})
+
   const data = [new ClipboardItem({ [blob.type]: blob })];
-  // Write the data to the clipboard
+
   await navigator.clipboard.write(data);
 }
+
+
+/* 
+
+const blob = await new Promise((resolve) => {
+  canvas.toBlob(resolve, 'image/png');
+});
+
+const item = new ClipboardItem({ "image/png": blob });
+navigator.clipboard.write([item]);
+*/
+
+
 const button = document.querySelector("button")
 
 button .addEventListener('click', copyCanvasContentsToClipboard())
