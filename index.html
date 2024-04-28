@@ -5,7 +5,7 @@
     <title>Чертёжник</title>
     <link rel="icon" href="icon.png" type="images/icon-x">
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css"> 
     <script src="js/draw-figure.js"></script>
     <script src="js/scene.js"></script>
     <script src="js/polyline.js"></script>
@@ -65,7 +65,6 @@
         </div>
     </div>
     <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
-
 </body>
 
 <script>
@@ -95,15 +94,13 @@
 
     document.addEventListener('keyup', (event) => {
         marker.marker(form)
-
+        
         if (event.code === "Escape") {
             escape1.click(form, marker, polygon)
             inputPoint.returnBorder(form)
         }
-
-        if (event.code === 'Enter' && form.length != 0) {
-            inputPoint.returnBorder(form)
-            marker.rubber()   
+      
+        if (event.code === 'Enter') {
             marker.enterOrEscape()
 
             enter.click(form, geometryType);
@@ -116,4 +113,5 @@
     });
 </script>
 
-</html>                                                                                                         
+<script src="js/copy-img.js"></script>
+</html>
