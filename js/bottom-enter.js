@@ -11,7 +11,7 @@ class Enter extends CommaDot {
     }
 
     addPoint(input, figure) {
-        this.сheckNumber(input)
+        this.сheckNumber(input)    
         console.table(this._point)
         input.value = '';
 

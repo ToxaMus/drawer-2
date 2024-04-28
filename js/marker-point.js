@@ -33,7 +33,7 @@ class MarkerPoint extends CommaDot {
         } else {
             el.style.border = "1px solid black"
         }
-    }
+    } 
 
     marker(element) {
         const inputEl = element.querySelectorAll('input');
