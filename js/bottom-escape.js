@@ -1,8 +1,7 @@
 class Escape {
-    click(element, mark, array) {
+        click(element, mark) {
         mark.enterOrEscape()
-        array.lenght = 0
-        
+               
         const inputEl = element.querySelectorAll('input');
         inputEl.forEach((input) => {
             input.value = ""

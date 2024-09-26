@@ -12,7 +12,6 @@ class Enter extends CommaDot {
 
     addPoint(input, figure) {
         this.сheckNumber(input)    
-        console.table(this._point)
         input.value = '';
 
         if (this._point.length == 3 && figure != "circle" && figure != "rubber") {

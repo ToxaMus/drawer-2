@@ -1,12 +1,11 @@
-async function copyCanvasContentsToClipboard() {    
-    const blob = await new Promise((resolve) => {
-        canvas.toBlob(resolve, 'image/png');
-      });
+ async function copyCanvasContentsToClipboard() {    
+  const canvas = document.getElementById('canvas')
 
-  const data = [new ClipboardItem({ [blob.type]: blob })];
+  canvas.toBlob(function(blob) { 
+    const item = new ClipboardItem({ "image/png": blob });
+    navigator.clipboard.write([item]); 
+});
 
-  await navigator.clipboard.write(data)
-  
   alert("Изображение скопировано")
 }
 
