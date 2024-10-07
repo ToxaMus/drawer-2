@@ -4,18 +4,15 @@ class FocusElement {
         inputs[0].focus()
     }
 
-    count = 0
-
     limit(event) {
-
         if (
             (
                 event.which == 9 &&
                 !event.shiftKey &&
-                document.activeElement.id == "copy") || (
+                document.activeElement.id == "geometryType") || (
                 event.which == 9 &&
                 event.shiftKey &&
-                document.activeElement.id == "geometryType")) {
+                document.activeElement.id == "copy")) {
             event.preventDefault();
         }
 

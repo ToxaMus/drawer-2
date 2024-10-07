@@ -28,42 +28,50 @@
 </head>
 
 <body>
-    <div id="container">
-        <canvas class="styleCanvas" id="rulerY" width="33" height="600"></canvas>
-        <form id="drawer">
-            <canvas id="canvas" class="styleCanvas" width="600" height="600"></canvas>
-            <canvas id="coordinateTable" class="styleCanvas" width="600" height="600"></canvas>
-            <canvas id="marker" class="styleCanvas" width="600" height="600"></canvas>
-        </form>
-        <div id="text">
-            <div id="instruction">
-                <p>Используйте TAB для перемещения со списка фигур на поле ввода </p>
-                <p>SHIFT+TAB - для перемещения в обратную сторону.</p>
-                <p>ENTER - открытие списка и выбирание фигур.</p>
-                <p>Стрелки управления для перемещения между типами фигур.</p>
-                <P>ESCAPE - удаление всех точек из памяти (при смене фигур происходит автоматически)</P>
-                <P>ESCAPE - удаление координаты из поле ввода</P>
-                <p>Точки надо вводить по <b>часовой</b></p>
-                <p>Буква не обязательна</p>
-                <p>Используйте <b>пробел</b> для разделения координат: <b>x y</b></p>
-                <p>После заполнения полей нажмите <b>ENTER</b></p>
-
+    <header>
+        <img src="./icon.png" alt="icon">
+        <h1>Чертёжник</h1>
+    </header>
+    <main>
+        <div id="container">
+            <canvas class="styleCanvas" id="rulerY" width="33" height="600"></canvas>
+            <form id="drawer">
+                <canvas id="canvas" class="styleCanvas" width="600" height="600"></canvas>
+                <canvas id="coordinateTable" class="styleCanvas" width="600" height="600"></canvas>
+                <canvas id="marker" class="styleCanvas" width="600" height="600"></canvas>
+            </form>
+            <div id="text">
+                <div id="instruction">
+                    <p><b>Горячие клавиши:</b></p>
+                   <ul>Используйте <kbd>TAB</kbd> для перемещения со списка фигур на поле ввода</ul>
+                   <ul><kbd>SHIFT</kbd> + <kbd>TAB</kbd> - для перемещения в обратную сторону.</ul>
+                   <ul><kbd>ENTER</kbd> - открытие списка и выбирание фигур.</ul>
+                   <ul><kbd>ESCAPE</kbd> - удаление всех точек из памяти (при смене фигур происходит автоматически)</ul>
+                   <ul><kbd>ESCAPE</kbd> - удаление координаты из поле ввода</ul>
+                   
+                   <p style="margin-top: 3em;"><b>Рекомендации:</b></p>
+                   <ul>Точки надо вводить по <b>ЧАСОВОЙ</b></ul>  
+                   <ul>Буква не обязательна</ul>
+                   <ul>Используйте <kbd>ПРОБЕЛ</kbd> для разделения координат: <b>x y</b></ul>
+                   <ul>После заполнения полей нажмите <kbd>ENTER</kbd></ul>
+                   <ul>Стрелки управления для перемещения между типами фигур.</ul>
+                </div>
+                <div> Геометрическая фигура:
+                    <select id="geometryType">
+                        <option>выбрать</option>
+                        <option value="line">ломаная</option>
+                        <option value="circle">круг</option>
+                        <option value="tetrahedron">тетраэдр</option>
+                        <option value="triangle">треугольник</option>
+                        <option value="rubber">резинка</option>
+                        <option value="rhombus">прямоугольник</option>
+                    </select>
+                </div>
+                <form id="input"></form>
+                <button id="copy" onclick="copyCanvasContentsToClipboard()">Скопировать рисунок</button>
             </div>
-            <div> Геометрическая фигура:
-                <select id="geometryType">
-                    <option>выбрать</option>
-                    <option value="line">ломаная</option>
-                    <option value="circle">круг</option>
-                    <option value="tetrahedron">тетраэдр</option>
-                    <option value="triangle">треугольник</option>
-                    <option value="rubber">резинка</option>
-                    <option value="rhombus">прямоугольник</option>
-                </select>
-            </div>
-            <form id="input"></form>
-            <button id="copy" onclick="copyCanvasContentsToClipboard()">Скопировать рисунок</button>
         </div>
-    </div>
+    </main>
     <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
 </body>
 
