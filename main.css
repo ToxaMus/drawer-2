@@ -14,8 +14,10 @@
 }
 
 #rulerX {
-    margin-left: 53px;
+    margin-left: 43px;
     margin-top: 1px;
+    height: 30px;
+    width: 600px;
 }
 
 #coordinateTable {
@@ -95,5 +97,22 @@ header > img {
 header > h1 {
     position: relative;
     left: 1em;
-    top: -20px    ;
+    top: -20px;
+}
+
+h2 {
+    position: relative;
+    left: 1em;
+    top: 10px;
+}
+
+#coordX {
+    display: flex;
+    flex-direction: row;
+}
+
+#labelX {
+    position: relative;
+    top: -17px;
+    left: 1.5em;
 }

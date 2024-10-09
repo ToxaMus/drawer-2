@@ -33,6 +33,7 @@
         <h1>Чертёжник</h1>
     </header>
     <main>
+        <h2>y</h2>
         <div id="container">
             <canvas class="styleCanvas" id="rulerY" width="33" height="600"></canvas>
             <form id="drawer">
@@ -45,9 +46,9 @@
                     <p><b>Горячие клавиши:</b></p>
                    <ul>Используйте <kbd>TAB</kbd> для перемещения со списка фигур на поле ввода</ul>
                    <ul><kbd>SHIFT</kbd> + <kbd>TAB</kbd> - для перемещения в обратную сторону.</ul>
-                   <ul><kbd>ENTER</kbd> - открытие списка и выбирание фигур.</ul>
+                   <ul><kbd>ENTER</kbd> - открытие списка и выбор фигур.</ul>
                    <ul><kbd>ESCAPE</kbd> - удаление всех точек из памяти (при смене фигур происходит автоматически)</ul>
-                   <ul><kbd>ESCAPE</kbd> - удаление координаты из поле ввода</ul>
+                   <ul><kbd>ESCAPE</kbd> - удаление координаты из поля ввода</ul>
                    
                    <p style="margin-top: 3em;"><b>Рекомендации:</b></p>
                    <ul>Точки надо вводить по <b>ЧАСОВОЙ</b></ul>  
@@ -72,7 +73,10 @@
             </div>
         </div>
     </main>
-    <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
+    <div id="coordX">
+        <h2 id="labelX">x</h2>
+        <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
+    </div>
 </body>
 
 <script src="main.js"></script>
