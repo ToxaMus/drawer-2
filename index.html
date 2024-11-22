@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Чертёжник</title>
+    <link rel="icon" href="icon.png" type="images/icon-x">      
+
+    <link rel="stylesheet" href="main.css">
+    <script src="js/reference.js"></script>
+    <script src="js/draw-figure.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/polyline.js"></script>
+    <script src="js/circle.js"></script>
+    <script src="js/point.js"></script>
+    <script src="js/rubber.js"></script>
+    <script src="js/tetrahedron.js"></script>
+    <script src="js/triangle.js"></script>
+    <script src="js/preparation-canvas.js"></script>
+    <script src="js/ruler-y.js"></script>
+    <script src="js/ruler-x.js"></script>
+    <script src="js/coordinate-table.js"></script>
+    <script src="js/input-point.js"></script>
+    <script src="js/replace-comma.js"></script>
+    <script src="js/bottom-enter.js"></script>
+    <script src="js/scaled-y.js"></script>
+    <script src="js/marker-point.js"></script>
+    <script src="js/bottom-escape.js"></script>
+    <script src="js/focus-element.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="./icon.png" alt="icon">
+        <h1>Чертёжник</h1>
+        <button id="start">Выход</button>
+    </header>
+    <main>
+        <h2>y</h2>
+        <div id="container">
+            <canvas class="styleCanvas" id="rulerY" width="33" height="600"></canvas>
+            <form id="drawer">
+                <canvas id="canvas" class="styleCanvas" width="600" height="600"></canvas>
+                <canvas id="coordinateTable" class="styleCanvas" width="600" height="600"></canvas>
+                <canvas id="marker" class="styleCanvas" width="600" height="600"></canvas>
+            </form>
+            <div id="text">
+                <div id="instruction">
+                    <p><b>Горячие клавиши:</b></p>
+                   <ul>Используйте <kbd>TAB</kbd> для перемещения со списка фигур на поле ввода</ul>
+                   <ul><kbd>SHIFT</kbd> + <kbd>TAB</kbd> - для перемещения в обратную сторону.</ul>
+                   <ul><kbd>ENTER</kbd> - открытие списка и выбор фигур.</ul>
+                   <ul><kbd>ESCAPE</kbd> - удаление всех точек из памяти (при смене фигур происходит автоматически)</ul>
+                   <ul><kbd>ESCAPE</kbd> - удаление координаты из поля ввода</ul>
+                   
+                   <p style="margin-top: 3em;"><b>Рекомендации:</b></p>
+                   <ul>Точки надо вводить по <b>ЧАСОВОЙ</b></ul>  
+                   <ul>Буква не обязательна</ul>
+                   <ul>Используйте <kbd>ПРОБЕЛ</kbd> для разделения координат: <b>Х У</b></ul>
+                   <ul>После заполнения полей нажмите <kbd>ENTER</kbd></ul>
+                   <ul>Стрелки управления для перемещения между типами фигур.</ul>
+                </div>
+                <div> Геометрическая фигура:
+                    <select id="geometryType">
+                        <option>выбрать</option>
+                        <option value="line">ломаная</option>
+                        <option value="circle">круг</option>
+                        <option value="tetrahedron">тетраэдр</option>
+                        <option value="triangle">треугольник</option>
+                        <option value="rhombus">прямоугольник</option>
+                        <option value="rubber">резинка</option>
+                    </select>
+                </div>
+                <form id="input"></form>
+                <button id="copy" onclick="copyCanvasContentsToClipboard()">Скопировать рисунок</button>
+            </div>
+            <form id="reference">
+                <h2>Справка</h2>
+                <h3>Видео</h3>
+                <video id="video">
+                    <source id = "source" type="video/mp4">
+                </video>
+                <h3>Действия:</h3>
+                <ol>
+                    <li>Запольните поля ввода (обозначение не обязательна)</li>
+                    <li>Используйте <kbd>ПРОБЕЛ</kbd> для разделения координат: <b>Х У</b></li>
+                    <li>Нажмите <kbd>ENTER</kbd></li>
+                </ol>
+            </form>
+        </div>
+    </main>
+    <div id="coordX">
+        <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
+        <h2 id="labelX">x</h2>
+    </div>
+
+</body>
+
+<script src="main.js"></script>
+<script src="js/copy-img.js"></script>  
+</html>     

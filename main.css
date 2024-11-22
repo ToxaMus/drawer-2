@@ -1,0 +1,149 @@
+#canvas {
+   margin: 0;
+    position: absolute;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.styleCanvas{
+    border: 1px solid black;
+}
+
+#rulerX {
+    margin-left: 55px;
+    margin-top: 1px;
+    height: 30px;
+    width: 600px;
+}
+
+#coordinateTable {
+    position: absolute;
+    z-index: -100;
+}
+
+#drawer {
+    margin-left: 10px;
+}
+
+#text {
+    position: absolute;
+    margin-left: 42em;
+}
+
+#input {
+    margin-top: 1em;
+}
+
+#input > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.input {
+    width: 30px;
+    height: 20px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+#coordinate {
+    width: 70px;
+    height: 20px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 5px;
+
+}
+
+#instruction > ul {
+    position: relative;
+    right: 2em;
+}
+
+#instruction {
+    margin-bottom: 3em;
+}
+
+kbd {
+    background: #eee; 
+    border: 4px outset #ccc; 
+    padding: .1em .6em;
+}
+
+#marker {
+    position: absolute;
+    z-index: 100;
+}
+
+header {
+    width: 100%;
+    height: 3em;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: row;
+}
+
+
+header > img {
+    position: relative;
+    left: 1em;
+}
+
+header > h1 {
+    position: relative;
+    left: 1em;
+    top: -20px;
+}
+
+h2 {
+    position: relative;
+    left: 1em;
+    top: 10px;
+}
+
+#coordX {
+    display: flex;
+    flex-direction: row;
+}
+
+#labelX {
+    position: relative;
+    top: -17px; 
+    left: 10px;
+}
+
+#start {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    margin-left: auto;
+    display: block;                                                     
+    right: 50px;
+    background-color: red;
+    font-size: 20px;
+}
+
+#reference {
+    position: absolute;
+    margin-left: 85em;   
+    border: 4mm ridge aqua;
+    visibility: hidden;
+}
+
+#reference > h2 {
+    position: relative;    
+    text-align: center;
+}
+
+li {
+    margin-top: 10px;
+}
+
+#video {
+    width: 500;
+}
