@@ -1,5 +1,5 @@
 #canvas {
-   margin: 0;
+    margin: 0;
     position: absolute;
 }
 
@@ -9,7 +9,7 @@
     margin: 10px;
 }
 
-.styleCanvas{
+.styleCanvas {
     border: 1px solid black;
 }
 
@@ -38,7 +38,7 @@
     margin-top: 1em;
 }
 
-#input > div {
+#input>div {
     display: flex;
     flex-direction: row;
 }
@@ -60,7 +60,7 @@
 
 }
 
-#instruction > ul {
+#instruction>ul {
     position: relative;
     right: 2em;
 }
@@ -70,8 +70,8 @@
 }
 
 kbd {
-    background: #eee; 
-    border: 4px outset #ccc; 
+    background: #eee;
+    border: 4px outset #ccc;
     padding: .1em .6em;
 }
 
@@ -89,12 +89,12 @@ header {
 }
 
 
-header > img {
+header>img {
     position: relative;
     left: 1em;
 }
 
-header > h1 {
+header>h1 {
     position: relative;
     left: 1em;
     top: -20px;
@@ -113,7 +113,7 @@ h2 {
 
 #labelX {
     position: relative;
-    top: -17px; 
+    top: -17px;
     left: 10px;
 }
 
@@ -122,21 +122,21 @@ h2 {
     height: 50px;
     position: relative;
     margin-left: auto;
-    display: block;                                                     
-    right: 50px;
     background-color: red;
+    right: 50px;
     font-size: 20px;
 }
 
 #reference {
     position: absolute;
-    margin-left: 85em;   
-    border: 4mm ridge aqua;
+    margin-left: 85em;
+    border: 3mm ridge gainsboro;
     visibility: hidden;
+    padding-left: 10px;
 }
 
-#reference > h2 {
-    position: relative;    
+#reference>h2 {
+    position: relative;
     text-align: center;
 }
 
@@ -144,6 +144,29 @@ li {
     margin-top: 10px;
 }
 
-#video {
-    width: 500;
+#modalWindow {
+    visibility: hidden;
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#message {
+    position: fixed;
+    left: 20%;
+    top: 20%;
+    background-color: white;
+    width: 40%;
+    height: 60%;
+    padding-left: 15px;
+}
+
+#message > h2 {
+    position: relative;
+    margin-left: auto;
+    top: 1em;
 }

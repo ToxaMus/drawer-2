@@ -15,7 +15,8 @@ geometryTypeElement.addEventListener('change', () => {
     inputPoint.removeInput(form)
     inputPoint.choosingFigure(geometryType)
     reference.visiblity()
-    reference.video(geometryType)
+    reference.delVideo()
+    reference.addVideo(geometryType)
 })
 
 const context = document.getElementById("canvas").getContext("2d")
@@ -30,12 +31,15 @@ document.addEventListener('keyup', (event) => {
     marker.marker(form)
 
     if (event.code === "Escape") {
-
-        polygon.length = 0
-        escape1.click(form, marker)
-        inputPoint.returnBorder(form)
-        context.beginPath()
-        focusElement.inpFocus()
+        if (document.getElementById("modalWindow").style.visibility == "visible") {
+            document.getElementById("modalWindow").style.visibility = "hidden"
+        } else { 
+            polygon.length = 0
+            escape1.click(form, marker)
+            inputPoint.returnBorder(form)
+            context.beginPath()
+            focusElement.inpFocus()
+        }
     }
 
     if (event.code === 'Enter') {

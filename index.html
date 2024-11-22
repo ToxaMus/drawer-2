@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTr-8" />
     <title>Чертёжник</title>
     <link rel="icon" href="icon.png" type="images/icon-x">      
 
@@ -76,9 +76,7 @@
             <form id="reference">
                 <h2>Справка</h2>
                 <h3>Видео</h3>
-                <video id="video">
-                    <source id = "source" type="video/mp4">
-                </video>
+                <div id="video"></div>
                 <h3>Действия:</h3>
                 <ol>
                     <li>Запольните поля ввода (обозначение не обязательна)</li>
@@ -91,6 +89,14 @@
     <div id="coordX">
         <canvas class="styleCanvas" id="rulerX" width="600" height="33"></canvas>
         <h2 id="labelX">x</h2>
+    </div>
+
+    <div id="modalWindow">
+        <form id="message">
+            <h1>Изображение скопировано</h1>
+            <iframe src="https://vk.com/video_ext.php?oid=5885804&id=456240044&hash=7d89a9cbc68b04e9" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <h2><kbd>ESCAPE</kbd> - вернуться назад</h2>
+        </form>   
     </div>
 
 </body>
