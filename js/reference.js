@@ -20,11 +20,11 @@ class Reference {
         } else if (type == "tetrahedron") {
             iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240045&hash=4667c68d54445270")
         } else if (type == "triangle") {
-            iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240045&hash=4667c68d54445270")
+            iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240046&hash=34d6db5f98705408")
         } else if (type == "rubber") {
-            iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240044&hash=7d89a9cbc68b04e9")
+           iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240043&hash=e3e91ead32f65584")
         } else if (type == "rhombus") {
-            iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240043&hash=e3e91ead32f65584")
+            iframe.setAttribute("src", "https://vk.com/video_ext.php?oid=5885804&id=456240041&hash=f03d62e46498a946")
         }
 
         video.appendChild(iframe)
