@@ -27,7 +27,6 @@ const escape1 = new Escape()
 const focusElement = new FocusElement()
 
 document.addEventListener('keyup', (event) => {
-    // focusElement.limit(event)
     marker.marker(form)
 
     if (event.code === "Escape") {
