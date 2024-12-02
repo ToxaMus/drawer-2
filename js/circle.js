@@ -1,6 +1,4 @@
 class Circle {
-     _color = 'black';
-
     constructor(center, radius) {
         this._center = center;
         this._radius = radius
