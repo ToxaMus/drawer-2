@@ -160,3 +160,18 @@ li {
     margin-left: auto;
     top: 1em;
 }
+
+#btn {
+    position: absolute;
+    right: 10em;
+}
+
+a {
+    display: inline-block;
+    background: #8C959D; 
+    color: #fff; 
+    padding: 1rem 1.5rem; 
+    text-decoration: none;
+    border-radius: 3px; 
+    margin-left: 3em;
+}
