@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTr-8" />
     <title>Чертёжник</title>
-    <link rel="icon" href="icon.png" type="images/icon-x">      
+    <link rel="icon" href="./image/icon.png" type="images/icon-x">      
 
     <link rel="stylesheet" href="main.css">
     <script src="js/reference.js"></script>
@@ -25,11 +25,13 @@
     <script src="js/marker-point.js"></script>
     <script src="js/bottom-escape.js"></script>
     <script src="js/focus-element.js"></script>
+    <script src="js/change.js"></script>
+
 </head>
 
 <body>
     <header>
-        <img src="./icon.png" alt="icon">
+        <img src="./image/icon.png" alt="icon">
         <h1>Чертёжник</h1>
         <form id="btn">
             <a href="https://t.me/c/2413653019/3">техподдержка</a> 
@@ -74,7 +76,12 @@
                     </select>
                 </div>
                 <form id="input"></form>
-                <button id="copy" onclick="copyCanvasContentsToClipboard()">Скопировать рисунок</button>
+                <form id="service_buttons">
+                    <button id="copy" onclick="copyCanvasContentsToClipboard()">Скопировать рисунок</button>
+                    <button id="cancel" onclick="undoChange()">
+                        <img src="./image/отмена изменений.png" alt="undo" id="undo">
+                    </button>
+                </form>
             </div>
             <form id="reference">
                 <h2>Справка</h2>

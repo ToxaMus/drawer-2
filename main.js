@@ -19,26 +19,25 @@ geometryTypeElement.addEventListener('change', () => {
     reference.addVideo(geometryType)
 })
 
-const context = document.getElementById("canvas").getContext("2d")
+const canvas = document.getElementById("canvas")
+const context = canvas.getContext("2d")
 const scene = new Scene(context)
 const scaledY = new ScaledY()
 const marker = new MarkerPoint()
 const escape1 = new Escape()
 const focusElement = new FocusElement()
+const change = new Change()
 
 document.addEventListener('keyup', (event) => {
     marker.marker(form)
 
     if (event.code === "Escape") {
-        if (document.getElementById("modalWindow").style.visibility == "visible") {
-            document.getElementById("modalWindow").style.visibility = "hidden"
-        } else { 
-            polygon.length = 0
-            escape1.click(form, marker)
-            inputPoint.returnBorder(form)
-            context.beginPath()
-            focusElement.inpFocus()
-        }
+        polygon.length = 0
+        escape1.click(form, marker)
+        inputPoint.returnBorder(form)
+        context.beginPath()
+        focusElement.inpFocus()
+
     }
 
     if (event.code === 'Enter') {
@@ -50,6 +49,20 @@ document.addEventListener('keyup', (event) => {
 
         figureDraw(geometryType, polygon, scene)
         scaledY.scal(polygon)
+        change.pushChange(canvas)
     }
-
 });
+
+function undoChange() {
+    debugger
+    if (change.undoArr.length > 1) {
+        context.clearRect(0, 0, 600, 600);
+
+        const img = new Image()
+        img.src = change.undoArr[change.undoArr.length - 1]
+        
+        change.undoArr.pop()
+
+        context.drawImage(img, 0, 0)
+    }
+}  

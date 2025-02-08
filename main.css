@@ -175,3 +175,17 @@ a {
     border-radius: 3px; 
     margin-left: 3em;
 }
+
+#service_buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#undo {
+    width: 20px;
+    height: 20px;
+}
+
+#cancel {
+    margin-left: 10px;
+}
