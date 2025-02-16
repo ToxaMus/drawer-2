@@ -26,7 +26,6 @@ const scaledY = new ScaledY()
 const marker = new MarkerPoint()
 const escape1 = new Escape()
 const focusElement = new FocusElement()
-const change = new Change()
 
 document.addEventListener('keyup', (event) => {
     marker.marker(form)
@@ -37,7 +36,7 @@ document.addEventListener('keyup', (event) => {
         inputPoint.returnBorder(form)
         context.beginPath()
         focusElement.inpFocus()
-
+        closeModal()
     }
 
     if (event.code === 'Enter') {
@@ -49,20 +48,21 @@ document.addEventListener('keyup', (event) => {
 
         figureDraw(geometryType, polygon, scene)
         scaledY.scal(polygon)
-        change.pushChange(canvas)
     }
 });
 
 function undoChange() {
-    debugger
-    if (change.undoArr.length > 1) {
-        context.clearRect(0, 0, 600, 600);
+    if (scene._shapes.length > 0) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
 
-        const img = new Image()
-        img.src = change.undoArr[change.undoArr.length - 1]
-        
-        change.undoArr.pop()
+        const img = new Image(canvas.width, canvas.height)
+             
+        img.onload = () => context.drawImage(img, 0, 0)
+        img.src = scene._shapes[scene._shapes.length - 1]
+        scene.removeShape()
 
-        context.drawImage(img, 0, 0)
+        console.table(scene._shapes)
+        scene.draw()
+        polygon.pop()
     }
 }  

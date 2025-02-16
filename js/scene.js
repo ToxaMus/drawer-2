@@ -12,5 +12,9 @@ _shapes = [];
     draw() {
         this._shapes.forEach(each => { each.draw(this._ctx) })
     }
+
+    removeShape() {
+        this._shapes.pop()
+    }
 }
          
