@@ -19,8 +19,8 @@ geometryTypeElement.addEventListener('change', () => {
     reference.addVideo(geometryType)
 })
 
-const canvas = document.getElementById("canvas")
-const context = canvas.getContext("2d")
+const cnv = document.getElementById("canvas")
+const context = cnv.getContext("2d")
 const scene = new Scene(context)
 const scaledY = new ScaledY()
 const marker = new MarkerPoint()
@@ -37,7 +37,7 @@ document.addEventListener('keyup', (event) => {
         context.beginPath()
         focusElement.inpFocus()
         closeModal()
-    }
+        }
 
     if (event.code === 'Enter') {
         focusElement.inpFocus()
@@ -52,17 +52,5 @@ document.addEventListener('keyup', (event) => {
 });
 
 function undoChange() {
-    if (scene._shapes.length > 0) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-
-        const img = new Image(canvas.width, canvas.height)
-             
-        img.onload = () => context.drawImage(img, 0, 0)
-        img.src = scene._shapes[scene._shapes.length - 1]
-        scene.removeShape()
-
-        console.table(scene._shapes)
-        scene.draw()
-        polygon.pop()
-    }
+    scene.undoShape(cnv, polygon)
 }  
