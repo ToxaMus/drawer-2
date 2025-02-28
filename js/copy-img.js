@@ -10,11 +10,11 @@ async function copyCanvasContentsToClipboard() {
 }
 
 function openModal() {
-  document.getElementById("modalWindow").style.visibility = "visible"
+  document.getElementById("optionCopy").style.visibility = "visible"
 }
 
 function closeModal() {
-  const modalWindow = document.getElementById("modalWindow")
+  const modalWindow = document.getElementById("optionCopy")
 
   if (modalWindow.style.visibility == "visible") {
     modalWindow.style.visibility = "hidden"

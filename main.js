@@ -1,6 +1,6 @@
 preparation()
 const geometryTypeElement = document.getElementById("geometryType");
-
+ 
 const polygon = []
 const enter = new Enter(polygon)
 const form = document.getElementById('input');
@@ -28,27 +28,32 @@ const escape1 = new Escape()
 const focusElement = new FocusElement()
 
 document.addEventListener('keyup', (event) => {
-    marker.marker(form)
-
-    if (event.code === "Escape") {
-        polygon.length = 0
-        escape1.click(form, marker)
-        inputPoint.returnBorder(form)
-        context.beginPath()
-        focusElement.inpFocus()
-        closeModal()
+    if (document.getElementById('hello') == null) {
+        marker.marker(form)
+    
+        if (event.code === "Escape") {
+            polygon.length = 0
+            escape1.click(form, marker)
+            inputPoint.returnBorder(form)
+            context.beginPath()
+            focusElement.inpFocus()
+            closeModal()
+            }
+    
+        if (event.code === 'Enter') {
+            focusElement.inpFocus()
+            marker.enterOrEscape()
+    
+            enter.click(form, geometryType);
+            scaledY.scal(polygon)
+    
+            figureDraw(geometryType, polygon, scene)
+            scaledY.scal(polygon)
         }
-
-    if (event.code === 'Enter') {
-        focusElement.inpFocus()
-        marker.enterOrEscape()
-
-        enter.click(form, geometryType);
-        scaledY.scal(polygon)
-
-        figureDraw(geometryType, polygon, scene)
-        scaledY.scal(polygon)
+    } else if (event.code === "Escape") {
+        document.getElementById('hello').remove()
     }
+
 });
 
 function undoChange() {
