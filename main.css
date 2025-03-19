@@ -165,8 +165,22 @@ li {
 }
 
 .message > ol > li {
+    font-size: 25px;
+    margin: 30px;
+}
+
+.message > p {
     font-size: 30px;
-    margin: 50px;
+}
+
+#helloMessagge{
+    position: relative;
+    bottom: 2px;
+    left: 1em;
+}
+
+#helloMessagge > p {
+    font-size: 35px;
 }
 
 #btn {
