@@ -1,22 +1,43 @@
 async function copyCanvasContentsToClipboard() {
-  const canvas = document.getElementById('canvas')
+  const canvas = document.getElementById('canvas');
 
-  canvas.toBlob(function (blob) {
+  if (!canvas) {
+    console.error('Canvas element not found');
+    return;
+  }
+
+  try {
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob((blob) => {
+        if (blob) {
+          resolve(blob);
+        } else {
+          reject(new Error('Canvas to Blob conversion failed'));
+        }
+      }, 'image/png');
+    });
+
     const item = new ClipboardItem({ "image/png": blob });
-    navigator.clipboard.write([item]);
-  });
-
-  openModal()  
+    await navigator.clipboard.write([item]);
+    console.log('Canvas content copied to clipboard');
+    openModal();
+  } catch (error) {
+    console.error('Failed to copy canvas content to clipboard:', error);
+  }
 }
 
 function openModal() {
-  document.getElementById("optionCopy").style.visibility = "visible"
+  const modal = document.getElementById("optionCopy");
+  if (modal) {
+    modal.style.visibility = "visible";
+  } else {
+    console.error('Modal element not found');
+  }
 }
 
 function closeModal() {
-  const modalWindow = document.getElementById("optionCopy")
-
-  if (modalWindow.style.visibility == "visible") {
-    modalWindow.style.visibility = "hidden"
+  const modal = document.getElementById("optionCopy");
+  if (modal && modal.style.visibility === "visible") {
+    modal.style.visibility = "hidden";
   }
-} 
+}
