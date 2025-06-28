@@ -27,13 +27,13 @@ class MarkerPoint extends CommaDot {
 
     }
 
-    error (el) {
+    error(el) {
         if (this._point.length > 2 || isNaN(this._point[0]) || isNaN(this._point[1])) {
             el.style.border = "4px solid red"
         } else {
             el.style.border = "1px solid black"
         }
-    } 
+    }
 
     marker(element) {
         const inputEl = element.querySelectorAll('input');
@@ -49,7 +49,7 @@ class MarkerPoint extends CommaDot {
             this.rubber()
 
             this._ctx.beginPath()
-            this._ctx.arc(this._point[0], 600-this._point[1], 2, 0, Math.PI * 2)
+            this._ctx.arc(this._point[0], 600 - this._point[1], 2, 0, Math.PI * 2)
             this._ctx.fillStyle = "red"
             this._ctx.fill()
         }
@@ -57,7 +57,7 @@ class MarkerPoint extends CommaDot {
 
     rubber() {
         this._ctx.beginPath()
-        this._ctx.clearRect(this.x - 2, 600-this.y - 2, 4, 4)
+        this._ctx.clearRect(this.x - 2, 600 - this.y - 2, 4, 4)
         this.x = this._point[0]
         this.y = this._point[1]
 

@@ -1,5 +1,5 @@
 class Reference {
-    visiblity() {
+    visiblity() {                         
         document.getElementById('reference').style.visibility = "visible";
     }
 
